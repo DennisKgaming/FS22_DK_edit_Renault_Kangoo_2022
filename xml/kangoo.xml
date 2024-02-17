@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="car" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+    
+	<storeData>
+        <name>
+            <en>Renault Kangoo Van 2022 DK edit</en></name>
+        <specs>
+            <power>130</power>
+            <maxSpeed>120</maxSpeed>
+        </specs>
+        <functions>
+            <function>$l10n_function_car</function>
+        </functions>
+        <image>icons/store_kangoo.dds</image>
+        <price>15000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>RENAULT1</brand>
+        <category>DennisKvehicles</category>
+        <vertexBufferMemoryUsage>1803844</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>433242</indexBufferMemoryUsage>
+        <textureMemoryUsage>15379440</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+    
+	<base>
+        <typeDesc>$l10n_typeDesc_car</typeDesc>
+        <filename>i3d/kangoo.i3d</filename>
+        <sounds filename="sounds/sound.xml"/>		
+        <size width="2.4" length="4.5"/>
+        <components count="1">
+            <component centerOfMass="0 0.3 -0.2" solverIterationCount="10" mass="1500" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="CAR" />
+        <mapHotspot type="CAR" />
+    </base>
+	
+    <wheels>
+        <wheelConfigurations>
+			<wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels autoRotateBackSpeed="2.5">
+				    <wheel filename="wheels/Wheels.xml" isLeft="true" configId="Stahlfelge_Front" hasParticles="true" hasTireTracks="true">
+                        <physics rotSpeed="1"  restLoad="0.5" repr="axisFrontLeft"  driveNode="wheelFrontLeft" radius="0.32" width="0.27" forcePointRatio="0.5" initialCompression="25" suspTravel="0.13" spring="14" damper="3" frictionScale="3" />
+                        <tire tireTrackAtlasIndex="1" />
+                    </wheel>
+					<wheel filename="wheels/Wheels.xml" isLeft="false" configId="Stahlfelge_Front" hasParticles="true" hasTireTracks="true">
+                        <physics rotSpeed="1"  restLoad="0.5" repr="axisFrontRight"  driveNode="wheelFrontRight" radius="0.32" width="0.27" forcePointRatio="0.5" initialCompression="25" suspTravel="0.13" spring="14" damper="3" frictionScale="3" />
+                        <tire tireTrackAtlasIndex="1" />
+                    </wheel>
+					<wheel filename="wheels/Wheels.xml" isLeft="true" configId="Stahlfelge_Back" hasParticles="true" hasTireTracks="true">
+                        <physics rotSpeed="0"  restLoad="0.7" repr="wheelBackLeft" radius="0.32" width="0.27" forcePointRatio="0.5" initialCompression="25" suspTravel="0.13" spring="14" damper="3" frictionScale="3" />
+                        <tire tireTrackAtlasIndex="1" />
+                    </wheel>
+					<wheel filename="wheels/Wheels.xml" isLeft="false" configId="Stahlfelge_Back" hasParticles="true" hasTireTracks="true">
+                        <physics rotSpeed="0"  restLoad="0.7" repr="wheelBackRight" radius="0.32" width="0.27" forcePointRatio="0.5" initialCompression="25" suspTravel="0.13" spring="14" damper="3" frictionScale="3" />
+                        <tire tireTrackAtlasIndex="1" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+		</wheelConfigurations>
+        <ackermannSteeringConfigurations>
+            <ackermannSteering rotSpeed="45" rotMax="45" rotCenterWheel1="3" rotCenterWheel2="4"/>
+        </ackermannSteeringConfigurations>
+    </wheels>
+	
+	<licensePlates>
+        <licensePlate node="licensePlateFront" position="FRONT" preferedType="ELONGATED" placementArea="0.07 0.2 0.2 0.26"/>
+        <licensePlate node="licensePlateBack"  position="BACK"  preferedType="ELONGATED" placementArea="0.07 0.2 0.2 0.26"/>
+    </licensePlates>
+	
+   <attachable>
+        <support animationName="moveSupport"/>
+    </attachable>
+	
+	<attacherJoints>
+		<attacherJointConfigurations>
+		
+			<attacherJointConfiguration name="$l10n_ahk_no" price="0">
+			</attacherJointConfiguration>
+			
+			<attacherJointConfiguration name="$l10n_ahk_yes" price="0">
+				<attacherJoint node="trailerAttacherJointBack" jointType="trailerLow" lowerRotLimit="10 70 50" upperRotationOffset="0" allowsJointLimitMovement="false" canTurnOnImplement="false" comboTime="1">
+				<schema position="1 0" rotation="0" invertX="false"/>
+			</attacherJoint>
+				<objectChange node="config_attacher" visibilityActive="true" />
+			</attacherJointConfiguration>
+		</attacherJointConfigurations>
+    </attacherJoints>	
+	
+	<connectionHoses>
+        <target attacherJointIndices="1" type="electric" node="electricBack" socket="electric"/>
+    </connectionHoses>
+
+    <lights>
+
+        <states>
+            <state lightTypes="0"/>
+            <state lightTypes="0 1"/>
+            <state lightTypes="0 1 2"/>			
+        </states>
+        <realLights>
+            <low>
+                <light node="frontLightLow" lightTypes="1"/>
+                <light node="highBeamLow" lightTypes="2"/>
+            </low>
+            <high>
+                <light node="frontLightHigh" lightTypes="1"/>
+                <light node="highBeamHigh" lightTypes="2"/>
+                <light node="backLightsHigh1" lightTypes="0 2"/>
+                <brakeLight node="backLightsHigh1"/>
+                <turnLightLeft node="turnLightLeft"/>
+                <turnLightRight node="turnLightRight"/>
+                <reverseLight node="reverseLight"/>
+            </high>
+        </realLights>
+        <defaultLights>
+            <defaultLight shaderNode="frontlightStatic" lightTypes="1 2"/>
+            <defaultLight shaderNode="daylightStatic" lightTypes="0 2" intensity="5"/>			
+			<defaultLight shaderNode="backlightStatic" lightTypes="0 2" />		
+            <defaultLight shaderNode="highBeamStatic" lightTypes="2"/>  
+        </defaultLights>
+        <brakeLights>
+			<brakeLight shaderNode="brakelightStatic" intensity="300" />
+			<brakeLight shaderNode="brakelight_backdoor" intensity="1500" />				
+        </brakeLights>
+        <reverseLights>
+            <reverseLight shaderNode="reverseLightStatic" />
+        </reverseLights>
+        <turnLights>
+			<turnLightLeft shaderNode="turnlightLeftStatic" />		
+            <turnLightRight shaderNode="turnlightRightStatic" />
+			
+        </turnLights>
+		
+        <dashboards>           
+            <dashboard displayType="EMITTER" valueType="lightState" node="0>0|11|0|1" intensity="0.5" lightTypes="0" groups="MOTOR_ACTIVE"/>
+        </dashboards>			
+		
+        <beaconLights>
+            <beaconLight node="beaconLight" 	filename="$data/shared/assets/beaconLights/lizard/beaconLight06.xml"/>
+			
+			<beaconLight node="flashBL" 		filename="lights/Flash/Flash.xml"/>
+			<beaconLight node="flashBR" 		filename="lights/Flash/Flash2.xml"/>
+			<beaconLight node="flashFR" 		filename="lights/Flash/Flash.xml"/>
+			<beaconLight node="flashFL" 		filename="lights/Flash/Flash2.xml"/>
+			
+			<beaconLight node="beaconRamp_01" 	filename="lights/beaconRamp/rampMini.xml"/>
+			<beaconLight node="beaconRamp_02" 	filename="lights/beaconRamp/rampMini02.xml"/>
+			
+        </beaconLights>				
+		
+    </lights>	
+	
+    <enterable isTabbable="true">
+        <enterReferenceNode node="kangoo_main_component1"/>
+        <exitPoint node="exitPoint"/>
+		
+        <cameras count="2">
+            <camera node="outdoorCamera1" rotatable="true" rotateNode="outdoorCameraTarget" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="4" transMax="40" translation="0 0 10" rotation="-17.5 180 0">
+                <raycastNode node="cameraRaycastNode1"/>
+                <raycastNode node="cameraRaycastNode2"/>
+            </camera>
+            <camera node="indoorCamera1" rotatable="true" limit="false" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" positionSmoothingParameter="0" shadowFocusBox="shadowFocusBox"/>
+        </cameras>
+		
+		
+        <characterNode node="player_skin" cameraMinDistance="1.5" spineRotation="-90 0 90">
+            <target ikChain="rightFoot" targetNode="player_rightFoot"/>
+            <target ikChain="leftFoot" targetNode="player_leftFoot"/>
+            <target ikChain="rightArm" targetNode="player_rightHand" poseId="wideFingers"/>
+            <target ikChain="leftArm" targetNode="player_leftHand" poseId="wideFingers"/>
+        </characterNode>
+		
+		<passengerSeats>
+            <passengerSeat node="0>0|17" exitPoint="0>0|4" outdoorCameraIndex="1">
+                <camera node="0>0|2|6" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" positionSmoothingParameter="0" shadowFocusBox="shadowFocusBox"/>
+                <characterNode node="0>0|17|0" cameraMinDistance="0.5" spineRotation="-90 0 90">
+                    <target ikChain="leftArm"   targetNode="0>0|17|4" poseId="flatFingers"/>
+                    <target ikChain="rightArm"  targetNode="0>0|17|3" poseId="flatFingers"/>
+                    <target ikChain="leftFoot"  targetNode="0>0|17|1" />
+                    <target ikChain="rightFoot" targetNode="0>0|17|2" />
+                </characterNode>
+            </passengerSeat>
+        </passengerSeats>		
+		
+    </enterable>
+	
+    <drivable>
+        <steeringWheel node="steeringWheel" indoorRotation="540" outdoorRotation="60"/>
+    </drivable>
+	
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unitTextOverride="$l10n_unit_literShort" showOnHud="false" showInShop="false" fillTypes="diesel" capacity="120">
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+	
+    <motorized>
+        <consumerConfigurations>
+            <consumerConfiguration>
+                <consumer fillUnitIndex="1" usage="30" fillType="diesel"/>
+                <!-- usage is per hour at max load and max rpm -->
+            </consumerConfiguration>
+        </consumerConfigurations>
+		
+        <differentialConfigurations>
+            <differentialConfiguration>
+                <differentials>
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.8" wheelIndex1="1" wheelIndex2="2"/>
+                    <!-- front left-right -->
+                </differentials>
+            </differentialConfiguration>
+        </differentialConfigurations>
+		
+        <motorConfigurations>
+            <motorConfiguration name="TCe 130" hp="130" price="0">
+                <motor torqueScale="0.6" minRpm="1000" maxRpm="6000" maxForwardSpeed="120" maxBackwardSpeed="25" brakeForce="1.8" lowBrakeForceScale="0.3" rotInertia="0.0015">
+                    <torque rpm="1000" torque="0.9"/>
+                    <torque rpm="2400" torque="1"/>
+                    <torque rpm="3480" torque="1"/>
+                    <torque rpm="4560" torque="0.75"/>
+                    <torque rpm="5280" torque="0.63"/>
+                    <torque rpm="6000" torque="0.4"/>
+                </motor>
+                <transmission minForwardGearRatio="10" maxForwardGearRatio="200" minBackwardGearRatio="40" maxBackwardGearRatio="200"/>
+            </motorConfiguration>
+        </motorConfigurations>
+		
+        <exhaustEffects>
+            <exhaustEffect node="exhaustParticle" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.9 0.9 0.9 0.1" maxRpmColor="0.9 0.9 0.9 0.4" minRpmScale="0.02" maxRpmScale="0.25"/>
+        </exhaustEffects>
+		
+    </motorized>
+	
+    <animations>
+	<!--IC Animations-->
+	
+        <animation name="RearleftDoor">
+            <sound file="sounds/door_close.ogg"    startTime="0.7"  direction="-1" volumeScale="1.4" pitchScale="1.4" linkNode="Door_Side_Left_vis"/>
+            <sound file="sounds/door_open.ogg"     startTime="0.01"  direction="1"  volumeScale="1.6" pitchScale="0.8" linkNode="Door_Side_Left_vis"/>		
+            <part node="Door_Side_Left_vis" startTime="0" endTime="0.2" startTrans="0.828 1.003 -0.625" endTrans="0.897 1.003 -0.625"/>
+            <part node="Door_Side_Left_vis" startTime="0.2" endTime="3.9" startTrans="0.897 1.003 -0.625" endTrans="0.897 1.003 -1.43"/>
+        </animation>	
+		
+        <animation name="RearrighttDoor">
+            <sound file="sounds/door_close.ogg"    startTime="0.7"  direction="-1" volumeScale="1.4" pitchScale="1.4" linkNode="Door_Side_Right_vis"/>
+            <sound file="sounds/door_open.ogg"     startTime="0.01"  direction="1"  volumeScale="1.6" pitchScale="0.8" linkNode="Door_Side_Right_vis"/>		
+            <part node="Door_Side_Right_vis" startTime="0" endTime="0.2" startTrans="-0.828 1.003 -0.625" endTrans="-0.897 1.003 -0.625"/>
+            <part node="Door_Side_Right_vis" startTime="0.2" endTime="3.9" startTrans="-0.897 1.003 -0.625" endTrans="-0.897 1.003 -1.43"/>
+        </animation>	
+
+        <animation name="backleftDoor">
+            <sound file="sounds/door_close.ogg"    startTime="0.1"  direction="-1" volumeScale="1.4" pitchScale="1.4" linkNode="Door_Rear_Left_vis"/>
+            <sound file="sounds/door_open.ogg"     startTime="0.01"  direction="1"  volumeScale="1.6" pitchScale="0.8" linkNode="Door_Rear_Left_vis"/>
+            <part node="Door_Rear_Left_vis" startTime="0" endTime="2.0" startRot="0 0 0" endRot="0 -110 0"/>
+        </animation>
+		
+        <animation name="backrightDoor">
+            <sound file="sounds/door_close.ogg"    startTime="0.1"  direction="-1" volumeScale="1.4" pitchScale="1.4" linkNode="Door_Rear_Right_vis"/>
+            <sound file="sounds/door_open.ogg"     startTime="0.01"  direction="1"  volumeScale="1.6" pitchScale="0.8" linkNode="Door_Rear_Right_vis"/>
+            <part node="Door_Rear_Right_vis" startTime="0.5" endTime="2.5" startRot="0 0 0" endRot="0 110 0"/>
+        </animation>		
+	
+    </animations>	
+	
+    <foldable>
+        <foldingConfigurations>
+            <foldingConfiguration>
+                <foldingParts requiresPower="false">		
+                    <foldingPart animationName="backleftDoor" speedScale="0.8"/>		
+                    <foldingPart animationName="backrightDoor" speedScale="0.8"/>					
+                </foldingParts>
+            </foldingConfiguration>
+        </foldingConfigurations>
+    </foldable>	
+	
+    <suspensions>
+        <suspension useCharacterTorso="true" weight="90" minRotation="0 -5 -5" maxRotation="0 5 5" suspensionParametersY="7 1" suspensionParametersZ="7 1"/>
+    </suspensions>
+	
+    <dashboard>
+        <groups>
+            <group name="MOTOR_ACTIVE" isMotorStarting="true" isMotorRunning="true"/>
+        </groups>
+        <default>
+            <dashboard displayType="EMITTER" node="0>0|11|0|1" idleValue="-1" intensity="7.3" groups="MOTOR_ACTIVE"/>
+        </default>
+    </dashboard>		
+	
+    <ai>
+        <agent width="2.05" length="5.5" height="1.85" lengthOffset="1.35" frontOffset="3.09" />
+        <collisionTrigger node="aiCollisionTrigger" width="2.4" height="1.8"/>
+    </ai>
+	
+	
+    <foliageBending>
+        <bendingNode minX="-1.15" maxX="1.15" minZ="-2.8" maxZ="2.8" yOffset="0.05"/>
+    </foliageBending>
+	
+	<vehicleTypeConfigurations>
+        <vehicleTypeConfiguration name="$l10n_nobeaconLight" price="0" vehicleType="car">
+            <objectChange node="beaconLight" visibilityActive="false" visibilityInactive="true" />
+        </vehicleTypeConfiguration>
+        <vehicleTypeConfiguration name="$l10n_beaconLight" price="120" vehicleType="car">
+            <objectChange node="beaconLight" visibilityActive="true" visibilityInactive="false" />
+        </vehicleTypeConfiguration>
+        <vehicleTypeConfiguration name="Beacon Ramp" price="120" vehicleType="car">
+            <objectChange node="beaconRamp" visibilityActive="true" visibilityInactive="false" />
+        </vehicleTypeConfiguration>
+    </vehicleTypeConfigurations>	
+
+   <baseMaterial>
+        <material name="kangoo_mat" baseNode="body_color">
+            <shaderParameter name="colorMat0" value="0.8 0 0 0"/>
+        </material>			
+    </baseMaterial>
+	
+	<baseMaterialConfigurations price="500" useDefaultColors="true" defaultColorIndex="0" title="Body color">
+		<material name="kangoo_mat" shaderParameter="colorMat0" />
+		
+        <baseMaterialConfiguration name="DennisK Dark Blue" 	color="0.005 0.001 0.533"/>
+		<baseMaterialConfiguration name="DennisK Light Blue" 	color="0.000 0.776 1.000"/>
+		<baseMaterialConfiguration name="DennisK Black" 		color="0 0 0"/>
+		<baseMaterialConfiguration name="Black Matt" 			color="0.015 0.015 0.015" material="23"/>
+    </baseMaterialConfigurations>
+	
+    <designConfigurations>
+        <designConfiguration name="Plastic Bumper" price="0">
+            <objectChange node="0>0|11|3|2" visibilityActive="true" visibilityInactive="false"/> 
+            <objectChange node="0>0|11|3|0" visibilityActive="false" visibilityInactive="true"/>		
+            <objectChange node="0>0|11|3|3" visibilityActive="true" visibilityInactive="false"/> 
+            <objectChange node="0>0|11|3|1" visibilityActive="false" visibilityInactive="true"/>				
+        </designConfiguration>
+        <designConfiguration name="Color Bumper" price="300">
+            <objectChange node="0>0|11|3|2" visibilityActive="false" visibilityInactive="true"/>
+            <objectChange node="0>0|11|3|0" visibilityActive="true" visibilityInactive="false"/>	
+            <objectChange node="0>0|11|3|3" visibilityActive="false" visibilityInactive="true"/> 
+            <objectChange node="0>0|11|3|1" visibilityActive="true" visibilityInactive="false"/>				
+        </designConfiguration>
+    </designConfigurations>	
+	
+    <design2Configurations>
+        <design2Configuration name="No Decals" price="0">
+            <objectChange node="0>0|11|1|3" visibilityActive="false" visibilityInactive="true"/>			
+            <objectChange node="0>0|7|0|0|5" visibilityActive="false" visibilityInactive="true"/>	
+            <objectChange node="0>0|7|1|0|5" visibilityActive="false" visibilityInactive="true"/>	
+            <objectChange node="0>0|7|2|0|8" visibilityActive="false" visibilityInactive="true"/>		
+            <objectChange node="0>0|7|2|1|4" visibilityActive="false" visibilityInactive="true"/>		
+        </design2Configuration>
+        <design2Configuration name="Service Decals" price="300">
+            <objectChange node="0>0|11|1|3" visibilityActive="true" visibilityInactive="false"/>
+			<objectChange node="0>0|7|0|0|5" visibilityActive="true" visibilityInactive="false"/>						
+			<objectChange node="0>0|7|1|0|5" visibilityActive="true" visibilityInactive="false"/>			
+			<objectChange node="0>0|7|2|0|8" visibilityActive="true" visibilityInactive="false"/>	
+			<objectChange node="0>0|7|2|1|4" visibilityActive="true" visibilityInactive="false"/>							
+		</design2Configuration>
+    </design2Configurations>
+
+	<design3Configurations price="500" title="Flasher Lights">
+		<design3Configuration name="No">
+			<objectChange node="flashLights"	visibilityActive="false"	visibilityInactive="true"/>
+		</design3Configuration>
+		<design3Configuration name="Yes">
+			<objectChange node="flashLights"	visibilityActive="true"	visibilityInactive="false"/>
+		</design3Configuration>
+	</design3Configurations>
+
+	<simpleIC outsideInteractionTrigger="0>0|18|0" >		
+		<animation animationName="RearleftDoor" animationSpeed="1" sharedAnimation="false" soundVolumeIncreasePercentage="0.5" movingToolDisableIndex="1" >
+            <outsideTrigger triggerPoint="0>0|7|1|0|4" triggerPointSize="0.04" />
+			<insideTrigger triggerPoint="0>0|7|1|0|4" triggerPointSize="0.04" />
+        </animation>
+		<animation animationName="RearrighttDoor" animationSpeed="1" sharedAnimation="false" soundVolumeIncreasePercentage="0.5" movingToolDisableIndex="1" >
+            <outsideTrigger triggerPoint="0>0|7|0|0|4" triggerPointSize="0.04" />
+			<insideTrigger triggerPoint="0>0|7|0|0|4" triggerPointSize="0.04" />
+        </animation>			
+    </simpleIC>		
+	
+    <tensionBelts>
+        <tensionBeltsConfigurations>
+            <tensionBeltsConfiguration>
+                <tensionBelts linkNode="tensionBelts" jointNode="0>" width="0.075" maxEdgeLength="0.1" geometryBias="0.01" ratchetPosition="0.2" defaultOffset="0.1" defaultOffsetSide="0.1" defaultHeight="4" activationTrigger="beltActivationTrigger">
+                    <tensionBelt startNode="tensionBeltStart1" endNode="tensionBeltEnd1" />
+                    <tensionBelt startNode="tensionBeltStart2" endNode="tensionBeltEnd2" />
+                </tensionBelts>
+            </tensionBeltsConfiguration>
+        </tensionBeltsConfigurations>
+    </tensionBelts>		
+			
+
+    <dischargeable requiresTipOcclusionArea="false"/>
+	
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+	
+    <i3dMappings>
+        <i3dMapping id="kangoo_main_component1" 	node="0>"/>
+		
+        <i3dMapping id="kangoo_vis" 				node="0>0"/>
+		
+        <i3dMapping id="wheels" 					node="0>0|0"/>
+        <i3dMapping id="axisFrontLeft" 				node="0>0|0|0|0"/>
+        <i3dMapping id="wheelFrontLeft" 			node="0>0|0|0|0|0|0"/>
+        <i3dMapping id="axisFrontRight" 			node="0>0|0|1|0"/>
+        <i3dMapping id="wheelFrontRight" 			node="0>0|0|1|0|0|0"/>
+        <i3dMapping id="wheelBackLeft" 				node="0>0|0|2|1"/>
+        <i3dMapping id="wheelBackRight" 			node="0>0|0|3|1"/>
+		
+		<i3dMapping id="staticLight" 				node="0>0|1|0"/>
+		<i3dMapping id="frontlightStatic" 			node="0>0|1|0|0"/>
+		<i3dMapping id="highBeamStatic" 			node="0>0|1|0|1"/>
+        <i3dMapping id="backlightStatic" 			node="0>0|1|0|2"/>	
+		<i3dMapping id="brakelightStatic" 			node="0>0|1|0|3"/>
+		<i3dMapping id="turnlightLeftStatic" 		node="0>0|1|0|4"/>
+        <i3dMapping id="turnlightRightStatic" 		node="0>0|1|0|5"/>
+		<i3dMapping id="reverseLightStatic" 		node="0>0|1|0|6"/>
+		<i3dMapping id="daylightStatic" 			node="0>0|1|0|7"/>	
+		<i3dMapping id="realLights" 				node="0>0|1|1"/>
+        <i3dMapping id="frontLightLow" 				node="0>0|1|1|0"/>
+		<i3dMapping id="highBeamLow" 				node="0>0|1|1|1"/>
+		<i3dMapping id="frontLightHigh" 			node="0>0|1|1|2"/>
+        <i3dMapping id="highBeamHigh" 				node="0>0|1|1|3"/>
+		<i3dMapping id="backLightsHigh1" 			node="0>0|1|1|4"/>
+        <i3dMapping id="turnLightLeft" 				node="0>0|1|1|5"/>
+		<i3dMapping id="turnLightRight" 			node="0>0|1|1|6"/>
+		<i3dMapping id="reverseLight" 				node="0>0|1|1|7"/>
+		<i3dMapping id="flashLights" 				node="0>0|1|2"/>
+		<i3dMapping id="flashBL" 					node="0>0|1|2|0"/>
+		<i3dMapping id="flashBR" 					node="0>0|1|2|1"/>
+		<i3dMapping id="flashFR" 					node="0>0|1|2|2"/>
+		<i3dMapping id="flashFL" 					node="0>0|1|2|3"/>
+		<i3dMapping id="beaconRamp" 				node="0>0|1|3"/>
+		<i3dMapping id="beaconRamp_01" 				node="0>0|1|3|0"/>
+		<i3dMapping id="beaconRamp_02" 				node="0>0|1|3|1"/>
+
+        
+        <i3dMapping id="outdoorCameraTarget"		node="0>0|2|0"/>
+        <i3dMapping id="outdoorCamera1" 			node="0>0|2|0|0"/>
+        <i3dMapping id="indoorCamera1" 				node="0>0|2|1"/>
+        <i3dMapping id="cameraRaycastNode1" 		node="0>0|2|2"/>
+        <i3dMapping id="cameraRaycastNode2" 		node="0>0|2|3"/>
+        <i3dMapping id="cameraRaycastNode3" 		node="0>0|2|4"/>
+        <i3dMapping id="shadowFocusBox" 			node="0>0|2|5"/>
+		
+        <i3dMapping id="player_skin" 				node="0>0|3|0"/>
+        <i3dMapping id="player_rightFoot" 			node="0>0|3|1"/>
+        <i3dMapping id="player_leftFoot" 			node="0>0|3|2"/>
+		
+        <i3dMapping id="exitPoint" 					node="0>0|4"/>
+		
+        <i3dMapping id="steeringWheel" 				node="0>0|5|0"/>
+        <i3dMapping id="player_leftHand" 			node="0>0|5|0|0"/>
+        <i3dMapping id="player_rightHand" 			node="0>0|5|0|1"/>
+		
+        <i3dMapping id="exhaustParticle" 			node="0>0|6|0"/>
+		
+
+		<i3dMapping id="Door_Side_Right_vis" 		node="0>0|7|0|0"/>
+		<i3dMapping id="Door_Side_Left_vis" 		node="0>0|7|1|0"/>
+		<i3dMapping id="Door_Rear_Left_vis" 		node="0>0|7|2|0"/>
+		<i3dMapping id="licensePlateBack" 			node="0>0|7|2|0|2" />	
+		<i3dMapping id="brakelight_backdoor" 		node="0>0|7|2|0|7"/>
+		<i3dMapping id="Door_Rear_Right_vis" 		node="0>0|7|2|1"/>	
+		
+        <i3dMapping id="aiCollisionTrigger" 		node="0>0|9|0"/>
+		
+		<i3dMapping id="body_color" 				node="0>0|11|2|0"/>	
+		
+		<i3dMapping id="playerTrigger" 				node="0>0|12"/>	
+
+		<i3dMapping id="licensePlateFront"			node="0>0|13"/>
+		
+        <i3dMapping id="config_attacher" 		  	node="0>0|14" />	
+        <i3dMapping id="electricBack" 				node="0>0|14|1"/>	
+        <i3dMapping id="trailerAttacherJointBack"	node="0>0|14|2"/>
+		
+	    <i3dMapping id="beaconLight" 				node="0>0|15" />	
+
+		<i3dMapping id="tensionBelts" 				node="0>0|16" />
+		<i3dMapping id="tensionBeltStart1" 			node="0>0|16|0" />
+		<i3dMapping id="tensionBeltEnd1" 			node="0>0|16|0|0" />
+		<i3dMapping id="loop_vis" 					node="0>0|16|0|0|0" />
+		<i3dMapping id="loop_vis" 					node="0>0|16|0|1" />
+		<i3dMapping id="tensionBeltStart2" 			node="0>0|16|1" />
+		<i3dMapping id="tensionBeltEnd2" 			node="0>0|16|1|0" />
+		<i3dMapping id="loop_vis" 					node="0>0|16|1|0|0" />
+		<i3dMapping id="loop_vis" 					node="0>0|16|1|1" />
+		<i3dMapping id="beltActivationTrigger" 		node="0>0|16|2" />
+
+    </i3dMappings>
+</vehicle>

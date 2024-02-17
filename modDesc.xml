@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="68">
+    <author>by LesiTheDogg</author>
+    <version>1.0.0.0</version>
+    <iconFilename>icons/icon_kangoo.dds</iconFilename>
+    <storeItems>
+        <storeItem xmlFilename="xml/kangoo.xml"/>
+    </storeItems>	
+	<title>
+        <en>Renault Kangoo Van 2022 DK edit</en>
+    </title>
+	<multiplayer supported="true"/> 
+    <description>
+        <en>
+            <![CDATA[Renault Kangoo Van 2022]]>
+        </en>
+        <de>
+            <![CDATA[Renault Kangoo Van 2022]]>
+        </de>
+    </description>
+	
+	<brands>
+		<brand name="RENAULT1" title="Renault" image="icons/logo.dds" />
+	</brands>	
+	
+	<l10n>
+		<text name="beaconLight">
+			<en>Beaconlight</en>
+			<de>RUL</de>
+		</text>
+		<text name="nobeaconLight">
+			<en>Without Beaconlight</en>
+			<de>NO RUL</de>
+		</text>		
+		<text name="ahk_no">
+			<en>Without Attacher</en>
+			<de>ohne AHK</de>
+		</text>		
+		<text name="ahk_yes">
+			<en>Attacher</en>
+			<de>AHK</de>
+		</text>		
+	</l10n>
+	
+	<extraSourceFiles>
+        <sourceFile filename="scripts/categorizer.lua"/>
+    </extraSourceFiles>
+	
+	<newcategory name="DennisKvehicles" title="DennisK" type="VEHICLE" img="Categories/CategoryVehicles.png" />
+
+</modDesc>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<sounds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../shared/xml/schema/vehicle_sounds.xsd">
+    <motorized>
+        <sounds>
+            <motorStart template="CAR_MOTOR_START"       file="sounds/start.ogg"     volumeScale="1.1"/>
+            <motorStop  template="CAR_MOTOR_STOP"        file="sounds/off.ogg"      volumeScale="1.1"/>
+            <motor      template="CAR_MOTOR_IDLE"        file="sounds/idle.ogg" volumeScale="1"/>
+            <motor      template="CAR_MOTOR_OFFLOAD_RUN" file="sounds/run.ogg"  volumeScale="1.2"/>
+            <motor      template="CAR_MOTOR_ONLOAD_RUN"  file="sounds/run.ogg" volumeScale="1.5"/>
+        </sounds>
+    </motorized>
+
+    <lights>
+        <sounds>
+            <toggleLights template="SWITCH_01"  />
+            <turnLight template="SWITCH_TURNLIGHT"  />
+        </sounds>
+    </lights>
+
+    <attacherJoints>
+        <sounds>
+            <attach template="ATTACH_01" />
+            <hydraulic template="defaultHydraulicSound" />
+        </sounds>
+    </attacherJoints>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="WATER_SPLASH_01" />
+        </sounds>
+    </drivable>
+
+    <honk>
+        <sound file="sounds/horn.ogg" />
+    </honk>
+</sounds>
