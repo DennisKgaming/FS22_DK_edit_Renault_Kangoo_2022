@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="68">
     <author>by LesiTheDogg</author>
-    <version>1.0.0.0</version>
+	<contributor>DennisK</contributor>
+    <version>2.0.0.0</version>
     <iconFilename>icons/icon_kangoo.dds</iconFilename>
     <storeItems>
         <storeItem xmlFilename="xml/kangoo.xml"/>
