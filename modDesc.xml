@@ -47,5 +47,11 @@
     </extraSourceFiles>
 	
 	<newcategory name="DennisKvehicles" title="DennisK" type="VEHICLE" img="Categories/CategoryVehicles.png" />
+	
+	<vehicleTypes>
+		<type name="PalletAutoLoaderCar" parent="car" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="FS22_aPalletAutoLoader.aPalletAutoLoader"/>
+		</type>
+	</vehicleTypes>	
 
 </modDesc>

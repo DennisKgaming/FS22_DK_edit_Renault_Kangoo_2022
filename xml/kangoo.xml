@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<vehicle type="car" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+<vehicle type="PalletAutoLoaderCar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
     <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
     
 	<storeData>
@@ -321,13 +321,13 @@
     </foliageBending>
 	
 	<vehicleTypeConfigurations>
-        <vehicleTypeConfiguration name="$l10n_nobeaconLight" price="0" vehicleType="car">
+        <vehicleTypeConfiguration name="$l10n_nobeaconLight" price="0" vehicleType="PalletAutoLoaderCar">
             <objectChange node="beaconLight" visibilityActive="false" visibilityInactive="true" />
         </vehicleTypeConfiguration>
-        <vehicleTypeConfiguration name="$l10n_beaconLight" price="120" vehicleType="car">
+        <vehicleTypeConfiguration name="$l10n_beaconLight" price="120" vehicleType="PalletAutoLoaderCar">
             <objectChange node="beaconLight" visibilityActive="true" visibilityInactive="false" />
         </vehicleTypeConfiguration>
-        <vehicleTypeConfiguration name="Beacon Ramp" price="120" vehicleType="car">
+        <vehicleTypeConfiguration name="Beacon Ramp" price="120" vehicleType="PalletAutoLoaderCar">
             <objectChange node="beaconRamp" visibilityActive="true" visibilityInactive="false" />
         </vehicleTypeConfiguration>
     </vehicleTypeConfigurations>	
@@ -411,6 +411,29 @@
     </tensionBelts>		
 			
     <dischargeable requiresTipOcclusionArea="false"/>
+	
+	<aPalletAutoLoader>
+		<aPalletAutoLoaderConfigurations title="Autoload">
+		
+			<aPalletAutoLoaderConfiguration name="No autoload">
+			</aPalletAutoLoaderConfiguration>
+		
+			<aPalletAutoLoaderConfiguration name="Use autoload" maxObjects="80" useBales="true" useTensionBelts="true" supportedObject="data/objects/pallets" UnloadRightOffset="0 0 -2" UnloadLeftOffset="0 0 -2">
+				<trigger node="loadTrigger"/>
+				<pickupTriggers>
+					<!-- <pickupTrigger node="pickupTriggerLeft"/>
+					<pickupTrigger node="pickupTriggerRight"/> -->
+					<pickupTrigger node="pickupTriggerBack"/>
+				</pickupTriggers>
+                <loadArea baseNode="loadingBase" leftRightCornerOffset="0.58 0 0" lenght="1.35" width="1.16" height="1.17"/>
+                <!-- <autoLoadObjectSettings>
+                    <autoLoadObjectSetting name="squarebale120" maxObjects="90"/>
+                </autoLoadObjectSettings> -->
+			</aPalletAutoLoaderConfiguration>
+			
+		</aPalletAutoLoaderConfigurations>
+        
+	</aPalletAutoLoader>
 	
     <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
     <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
@@ -518,6 +541,12 @@
 		<i3dMapping id="loop_vis" 					node="0>0|16|1|0|0" />
 		<i3dMapping id="loop_vis" 					node="0>0|16|1|1" />
 		<i3dMapping id="beltActivationTrigger" 		node="0>0|16|2" />
+		
+		<i3dMapping id="loadingBase" 				node="0>2|0" />
+		<i3dMapping id="loadTrigger" 				node="0>2|1" />
+		<i3dMapping id="pickupTriggerBack" 			node="0>2|2" />
+		<!-- <i3dMapping id="pickupTriggerLeft" 			node="0>2|3" />
+		<i3dMapping id="pickupTriggerRight" 		node="0>2|4" /> -->
 
     </i3dMappings>
 </vehicle>
