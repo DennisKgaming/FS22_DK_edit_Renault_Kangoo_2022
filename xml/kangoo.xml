@@ -80,7 +80,7 @@
 			<attacherJointConfiguration name="$l10n_ahk_no" price="0">
 			</attacherJointConfiguration>
 			
-			<attacherJointConfiguration name="$l10n_ahk_yes" price="0">
+			<attacherJointConfiguration name="$l10n_ahk_yes" price="0" isDefault="true">
 				<attacherJoint node="trailerAttacherJointBack" jointType="trailerLow" lowerRotLimit="10 70 50" upperRotationOffset="0" allowsJointLimitMovement="false" canTurnOnImplement="false" comboTime="1">
 				<schema position="1 0" rotation="0" invertX="false"/>
 			</attacherJoint>
@@ -354,7 +354,7 @@
             <objectChange node="0>0|11|3|3" visibilityActive="true" visibilityInactive="false"/> 
             <objectChange node="0>0|11|3|1" visibilityActive="false" visibilityInactive="true"/>				
         </designConfiguration>
-        <designConfiguration name="Color Bumper" price="300">
+        <designConfiguration name="Color Bumper" price="300" isDefault="true">
             <objectChange node="0>0|11|3|2" visibilityActive="false" visibilityInactive="true"/>
             <objectChange node="0>0|11|3|0" visibilityActive="true" visibilityInactive="false"/>	
             <objectChange node="0>0|11|3|3" visibilityActive="false" visibilityInactive="true"/> 
@@ -370,7 +370,7 @@
             <objectChange node="0>0|7|2|0|8" visibilityActive="false" visibilityInactive="true"/>		
             <objectChange node="0>0|7|2|1|4" visibilityActive="false" visibilityInactive="true"/>		
         </design2Configuration>
-        <design2Configuration name="DennisK Farming" price="300">
+        <design2Configuration name="DennisK Farming" price="300" isDefault="true">
             <objectChange node="0>0|11|1|3" visibilityActive="true" visibilityInactive="false"/>
 			<objectChange node="0>0|7|0|0|5" visibilityActive="true" visibilityInactive="false"/>						
 			<objectChange node="0>0|7|1|0|5" visibilityActive="true" visibilityInactive="false"/>			
